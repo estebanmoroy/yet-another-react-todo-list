@@ -1,0 +1,176 @@
+//Colors
+$first-color: #252e42;
+$second-color: #505668;
+$third-color: #5981ea;
+$fourth-color: #666d81;
+$fifth-color: #88304e;
+$font-color: #fefefe;
+$background-color: #010920;
+
+$fallback-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $background-color;
+  font-family: "Lato", $fallback-fonts;
+  color: $font-color;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  grid-template-rows:
+    [title-start] 20% [title-end projects-start]
+    auto [projects-end footer-start]
+    20% [footer-end];
+  justify-content: center;
+  height: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  padding-top: 3rem;
+}
+h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  padding-top: 3rem;
+  margin: 8px 0 24px 0;
+}
+
+.projects-container {
+  grid-row: projects-start / projects-end;
+  width: 500px;
+}
+
+.project {
+  padding: 1rem;
+  background-color: $first-color;
+  border-radius: 12px;
+}
+
+.todo {
+  display: grid;
+  grid-template-columns:
+    [checkbox-start] 10% [checkbox-end title-start]
+    auto [title-end marker-start]
+    10% [marker-end];
+  grid-template-rows:
+    [title-start] 10% [title-end description-start]
+    auto [description-end date-start]
+    10% [date-end];
+  grid-column-gap: 5px;
+  grid-row-gap: 15px;
+
+  margin-top: 8px;
+}
+
+.todo-checkbox {
+  grid-column: checkbox-start / checkbox-end;
+  grid-row: title-start / title-end;
+}
+
+.todo-title {
+  grid-column: title-start / title-end;
+  grid-row: title-start / title-end;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.todo-mark-as-important {
+  grid-column: marker-start / marker-end;
+  grid-row: title-start / title-end;
+}
+
+.todo-description {
+  grid-column: title-start / marker-end;
+  grid-row: description-start / description-end;
+
+  color: $fourth-color;
+  margin-bottom: 6px;
+}
+
+.todo-date {
+  grid-column: title-start / marker-end;
+  grid-row: date-start / date-end;
+}
+
+.date-wrapper {
+  background-color: $fifth-color;
+  border-radius: 5px;
+  padding: 2px 8px;
+}
+
+footer {
+  grid-row: footer-start / footer-end;
+  align-self: end;
+}
+
+/* Inputs*/
+
+/* Hides the default checkbox */
+input[type="checkbox"] {
+  //display: none;
+}
+
+.checkmark-wrapper {
+  cursor: pointer;
+}
+
+.checkmark-bg {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-top: -0.2rem;
+  margin-left: 0.4rem;
+  background-color: $second-color;
+  border-radius: 25px;
+}
+
+/* Change of icon*/
+input + .checkmark-bg > i.checkmark::before {
+  content: "";
+  font-size: 1.6rem;
+  font-weight: 900;
+  transition: 0.5s;
+
+  padding-left: 0.2rem;
+}
+input:checked + .checkmark-bg > i.checkmark::before {
+  content: "check";
+}
+
+/*Mark as important flag/checkbox*/
+
+.mark-wrapper {
+  cursor: pointer;
+  padding: 1rem 0.4rem 0.2rem 0.4rem;
+  border-radius: 25px;
+}
+.mark-wrapper:hover {
+  background-color: $second-color;
+}
+.mark-wrapper:hover i {
+  color: $third-color;
+}
+
+/* Change of icon*/
+input + i.mark::before {
+  content: "bookmark_border";
+  font-size: 1.6rem;
+  transition: 0.5s;
+}
+input:checked + i.mark::before {
+  content: "bookmark";
+  color: $third-color;
+}
