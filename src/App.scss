@@ -30,8 +30,8 @@ body {
 .container {
   display: grid;
   grid-template-rows:
-    [title-start] 20% [title-end projects-start]
-    auto [projects-end footer-start]
+    [title-start] 20% [title-end list-start]
+    auto [list-end footer-start]
     20% [footer-end];
   justify-content: center;
   height: 100%;
@@ -49,12 +49,9 @@ h2 {
   margin: 8px 0 24px 0;
 }
 
-.projects-container {
-  grid-row: projects-start / projects-end;
+.todo-list {
+  grid-row: list-start / list-end;
   width: 500px;
-}
-
-.project {
   padding: 1rem;
   background-color: $first-color;
   border-radius: 12px;
