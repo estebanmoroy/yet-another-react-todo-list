@@ -9,17 +9,20 @@ class Todo extends Component {
   render() {
     return (
       <div className="todo">
-        <input
-          type="checkbox"
-          onChange={this.props.toggleComplete.bind(this, this.props.todo.id)}
-          checked={this.props.todo.isCompleted}
-          className="todo-checkbox"
-        />
+        <label className="checkbox-wrapper">
+          <input
+            type="checkbox"
+            onChange={this.props.toggleComplete.bind(this, this.props.todo.id)}
+            checked={this.props.todo.isCompleted}
+            className="todo-checkbox"
+          />
+          <i className="material-icons"></i>
+        </label>
         <div style={this.getStyle()} className="todo-title">
           {this.props.todo.title}
         </div>
         <button onClick={this.props.delete.bind(this, this.props.todo.id)}>
-          X
+          <i className="material-icons">delete</i>
         </button>
         <div className="todo-description">This is a description</div>
         <div className="todo-date">

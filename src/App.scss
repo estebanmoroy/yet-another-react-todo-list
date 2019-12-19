@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 //Colors
 $first-color: #252e42;
 $second-color: #505668;
@@ -52,7 +55,7 @@ h2 {
 .todo-list {
   grid-row: list-start / list-end;
   width: 500px;
-  padding: 1rem;
+  padding: 1rem 0;
   background-color: $first-color;
   border-radius: 12px;
 }
@@ -67,10 +70,13 @@ h2 {
     [title-start] 10% [title-end description-start]
     auto [description-end date-start]
     10% [date-end];
-  grid-column-gap: 5px;
-  grid-row-gap: 15px;
-
+  grid-gap: 5px;
   margin-top: 8px;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    background-color: $second-color;
+  }
 }
 
 .todo-checkbox {
@@ -116,58 +122,17 @@ footer {
 
 /* Inputs*/
 
-/* Hides the default checkbox */
-input[type="checkbox"] {
-  //display: none;
-}
-
-.checkmark-wrapper {
+label.checkbox-wrapper {
   cursor: pointer;
-}
 
-.checkmark-bg {
-  width: 1.8rem;
-  height: 1.8rem;
-  margin-top: -0.2rem;
-  margin-left: 0.4rem;
-  background-color: $second-color;
-  border-radius: 25px;
-}
+  input[type="checkbox"] {
+    display: none;
 
-/* Change of icon*/
-input + .checkmark-bg > i.checkmark::before {
-  content: "";
-  font-size: 1.6rem;
-  font-weight: 900;
-  transition: 0.5s;
-
-  padding-left: 0.2rem;
-}
-input:checked + .checkmark-bg > i.checkmark::before {
-  content: "check";
-}
-
-/*Mark as important flag/checkbox*/
-
-.mark-wrapper {
-  cursor: pointer;
-  padding: 1rem 0.4rem 0.2rem 0.4rem;
-  border-radius: 25px;
-}
-.mark-wrapper:hover {
-  background-color: $second-color;
-}
-.mark-wrapper:hover i {
-  color: $third-color;
-}
-
-/* Change of icon*/
-input + i.mark::before {
-  content: "bookmark_border";
-  font-size: 1.6rem;
-  transition: 0.5s;
-}
-input:checked + i.mark::before {
-  content: "bookmark";
-  color: $third-color;
+    & + i::before {
+      content: "";
+    }
+    &:checked + i::before {
+      content: "check";
+    }
+  }
 }
