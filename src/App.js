@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Header from "./layout/Header";
-import AddTodo from "./layout/AddTodo";
+import Header from "./components/Header";
+import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
 
 import "./App.scss";
@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header />
-        <div className="projects-container">
+        <div className="todo-list">
           <AddTodo addTodo={this.addTodo} />
           <TodoList
             todoList={this.state.todoList}
