@@ -19,7 +19,7 @@ class AddTodo extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form className="add-todo" onSubmit={this.onSubmit}>
         <input
           type="text"
           name="title"
@@ -27,7 +27,9 @@ class AddTodo extends Component {
           value={this.state.title}
           onChange={this.onChange}
         />
-        <input type="submit" value="+" />
+        <button className="add-todo-button">
+          <i className="material-icons">add</i>
+        </button>
       </form>
     );
   }

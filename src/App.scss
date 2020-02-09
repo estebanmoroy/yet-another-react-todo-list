@@ -3,9 +3,9 @@
 
 //Colors
 $first-color: #252e42;
-$second-color: #505668;
+$second-color: #fefefe10;
 $third-color: #5981ea;
-$fourth-color: #666d81;
+$fourth-color: #fefefe3a;
 $fifth-color: #88304e;
 $font-color: #fefefe;
 $background-color: #010920;
@@ -33,7 +33,8 @@ body {
 .container {
   display: grid;
   grid-template-rows:
-    [title-start] 20% [title-end list-start]
+    [title-start] 20% [title-end add-todo-start]
+    auto [add-todo-end list-start]
     auto [list-end footer-start]
     20% [footer-end];
   justify-content: center;
@@ -50,6 +51,46 @@ h2 {
   font-weight: 900;
   padding-top: 3rem;
   margin: 8px 0 24px 0;
+}
+
+.add-todo {
+  display: grid;
+  grid-template-columns:
+    [input-start] auto [input-end add-button-start]
+    20% [add-button-end];
+  background-color: $first-color;
+  margin: 2rem 0 1rem 0;
+  border-radius: 12px;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  color: $font-color;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.5rem 0.4rem 1.5rem;
+}
+
+button {
+  border: none;
+  border-radius: 50%;
+  margin: 0 0.35rem;
+  padding: 0.3rem 0.3rem 0rem 0.3rem;
+  background-color: transparent;
+  color: $font-color;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $fourth-color;
+  }
+}
+
+.add-todo-button {
+  margin: 0 0.5rem 0 2rem;
+  &:hover {
+    background-color: transparent;
+  }
 }
 
 .todo-list {
@@ -72,7 +113,7 @@ h2 {
     10% [date-end];
   grid-gap: 5px;
   margin-top: 8px;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem 0.5rem 1rem;
 
   &:hover {
     background-color: $second-color;
@@ -124,6 +165,17 @@ footer {
 
 label.checkbox-wrapper {
   cursor: pointer;
+  background-color: $second-color;
+
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  padding-top: 5%;
+  padding-left: 10%;
+
+  &:hover {
+    background-color: $fourth-color;
+  }
 
   input[type="checkbox"] {
     display: none;

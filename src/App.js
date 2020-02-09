@@ -51,8 +51,8 @@ class App extends Component {
     return (
       <div className="container">
         <Header />
+        <AddTodo addTodo={this.addTodo} />
         <div className="todo-list">
-          <AddTodo addTodo={this.addTodo} />
           <TodoList
             todoList={this.state.todoList}
             toggleComplete={this.toggleComplete}
